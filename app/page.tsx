@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 
 const categories = [
   { name: "Conservas", href: "/productos/conservas", image: "/productos/conservas/seccion-conservas.png" },
@@ -9,6 +12,8 @@ const categories = [
 ];
 
 export default function Home() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
     <main className="min-h-screen bg-[#f6f0e6] text-[#32271f]">
       <header className="fixed left-0 top-0 z-50 w-full border-b border-[#fff7ec]/10 bg-[#221913]/65 text-[#fff7ec] backdrop-blur-md">
@@ -67,7 +72,11 @@ export default function Home() {
                 <path d="M9 12.2h8" />
               </svg>
             </a>
-            <details className="group relative">
+            <details
+              className="group relative"
+              open={isMobileMenuOpen}
+              onToggle={(event) => setIsMobileMenuOpen(event.currentTarget.open)}
+            >
               <summary className="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full border border-[#fff7ec]/35 text-[#fff7ec] transition hover:bg-[#9a563f] [&::-webkit-details-marker]:hidden">
                 <span className="sr-only">Abrir menú</span>
                 <span className="flex flex-col gap-1.5">
@@ -77,18 +86,18 @@ export default function Home() {
                 </span>
               </summary>
               <nav className="absolute right-0 top-14 w-64 rounded-3xl border border-[#fff7ec]/15 bg-[#221913]/95 p-5 text-sm uppercase tracking-[0.18em] text-[#fff7ec] shadow-2xl shadow-black/30 backdrop-blur-md">
-                <a className="block rounded-2xl px-4 py-3 transition hover:bg-[#fff7ec]/10" href="#inicio">Inicio</a>
-                <a className="block rounded-2xl px-4 py-3 transition hover:bg-[#fff7ec]/10" href="#productos">Productos</a>
+                <a onClick={() => setIsMobileMenuOpen(false)} className="block rounded-2xl px-4 py-3 transition hover:bg-[#fff7ec]/10" href="#inicio">Inicio</a>
+                <a onClick={() => setIsMobileMenuOpen(false)} className="block rounded-2xl px-4 py-3 transition hover:bg-[#fff7ec]/10" href="#productos">Productos</a>
                 <div className="ml-4 border-l border-[#fff7ec]/15 pl-3 text-xs tracking-[0.14em] text-[#fff7ec]/80">
-                  <a className="block rounded-2xl px-4 py-2 transition hover:bg-[#fff7ec]/10" href="/productos/conservas">Conservas</a>
-                  <a className="block rounded-2xl px-4 py-2 transition hover:bg-[#fff7ec]/10" href="/productos/bebidas">Bebidas</a>
-                  <a className="block rounded-2xl px-4 py-2 transition hover:bg-[#fff7ec]/10" href="/productos/gourmet">Gourmet</a>
-                  <a className="block rounded-2xl px-4 py-2 transition hover:bg-[#fff7ec]/10" href="/productos/caprichos">Caprichos</a>
-                  <a className="block rounded-2xl px-4 py-2 transition hover:bg-[#fff7ec]/10" href="/productos/packs">Packs</a>
+                  <a onClick={() => setIsMobileMenuOpen(false)} className="block rounded-2xl px-4 py-2 transition hover:bg-[#fff7ec]/10" href="/productos/conservas">Conservas</a>
+                  <a onClick={() => setIsMobileMenuOpen(false)} className="block rounded-2xl px-4 py-2 transition hover:bg-[#fff7ec]/10" href="/productos/bebidas">Bebidas</a>
+                  <a onClick={() => setIsMobileMenuOpen(false)} className="block rounded-2xl px-4 py-2 transition hover:bg-[#fff7ec]/10" href="/productos/gourmet">Gourmet</a>
+                  <a onClick={() => setIsMobileMenuOpen(false)} className="block rounded-2xl px-4 py-2 transition hover:bg-[#fff7ec]/10" href="/productos/caprichos">Caprichos</a>
+                  <a onClick={() => setIsMobileMenuOpen(false)} className="block rounded-2xl px-4 py-2 transition hover:bg-[#fff7ec]/10" href="/productos/packs">Packs</a>
                 </div>
-                <a className="block rounded-2xl px-4 py-3 transition hover:bg-[#fff7ec]/10" href="#sobre-nosotros">Sobre nosotros</a>
-                <a className="block rounded-2xl px-4 py-3 transition hover:bg-[#fff7ec]/10" href="#lifestyle">Lifestyle</a>
-                <a className="block rounded-2xl px-4 py-3 transition hover:bg-[#fff7ec]/10" href="#contacto">Contacto</a>
+                <a onClick={() => setIsMobileMenuOpen(false)} className="block rounded-2xl px-4 py-3 transition hover:bg-[#fff7ec]/10" href="#sobre-nosotros">Sobre nosotros</a>
+                <a onClick={() => setIsMobileMenuOpen(false)} className="block rounded-2xl px-4 py-3 transition hover:bg-[#fff7ec]/10" href="#lifestyle">Lifestyle</a>
+                <a onClick={() => setIsMobileMenuOpen(false)} className="block rounded-2xl px-4 py-3 transition hover:bg-[#fff7ec]/10" href="#contacto">Contacto</a>
               </nav>
             </details>
           </div>
